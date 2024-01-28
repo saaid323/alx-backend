@@ -56,7 +56,7 @@ class Server:
         total_pages = math.ceil(len(self.dataset()) / page_size)
         dic = {'page_size': 0 if total_pages < page else page_size}
         dic['page'] = page
-        
+
         for i in range(Range[0], Range[1]):
             try:
                 names.append(all_names[i])
@@ -67,4 +67,3 @@ class Server:
         dic['prev_page'] = page - 1 if page > 1 else None
         dic['total_pages'] = total_pages
         return dic
-
