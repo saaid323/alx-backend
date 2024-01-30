@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''Implements first in fiirst out'''
-BaseCaching = __import__('baseCache').BaseCaching
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 class FIFOCache(BaseCaching):
