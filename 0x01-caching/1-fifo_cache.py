@@ -5,6 +5,7 @@ BaseCaching = __import__('baseCache').BaseCaching
 
 class FIFOCache(BaseCaching):
     '''class that inherits from BaseCaching and is a caching system'''
+
     def __init__(self):
         super().__init__()
 
@@ -17,9 +18,13 @@ class FIFOCache(BaseCaching):
         '''puts items into the dictionary'''
         if key is not None or item is not None:
             if len(self.cache_data) >= self.MAX_ITEMS:
-                discarded = self.first_key(self.cache_data)
-                del self.cache_data[self.first_key(self.cache_data)]
-                print(f'DISCARD: {discarded}')
+                if self.cache_data.get(key) is not None:
+                    self.cache_data.pop(key)
+                    self.cache_data[key] = item
+                else:
+                    discarded = self.first_key(self.cache_data)
+                    del self.cache_data[self.first_key(self.cache_data)]
+                    print(f'DISCARD: {discarded}')
 
             self.cache_data[key] = item
             return self.cache_data
