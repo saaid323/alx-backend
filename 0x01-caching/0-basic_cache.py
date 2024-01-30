@@ -5,10 +5,7 @@ from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    '''inherits from BaseCaching and is a caching system'''
-
-    def __init__(self):
-        super().__init__()
+    '''inherits from BaseCaching and is a caching syste'''
 
     def put(self, key, item):
         '''does nothing if key or item is none else adds them to the
