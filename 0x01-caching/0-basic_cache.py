@@ -20,6 +20,6 @@ class BasicCache(BaseCaching):
 
     def get(self, key):
         '''returns the item from the dictionary or none'''
-        if key is None:
+        if key is None or key not in self.cache_data:
             return None
         return self.cache_data.get(key, None)
