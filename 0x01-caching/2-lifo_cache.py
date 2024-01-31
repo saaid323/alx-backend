@@ -12,6 +12,8 @@ class LIFOCache(BaseCaching):
 
     def put(self, key, item):
         '''adds item to a dictionary'''
+        if key is None or item is None:
+            return
         if len(self.cache_data) >= self.MAX_ITEMS:
             if self.cache_data.get(key) is not None:
                 self.cache_data.pop(key)
@@ -19,12 +21,11 @@ class LIFOCache(BaseCaching):
             else:
                 discard = self.cache_data.popitem()
                 print(f'DISCARD: {discard[0]}')
-        if key is not None or item is not None:
-            self.cache_data[key] = item
+        self.cache_data[key] = item
         return self.cache_data
 
     def get(self, key):
         '''gets item from dictionary'''
-        if self.cache_data[key] is None:
-            return None
-        return self.cache_data[key]
+        if key is not None or key in self.cache_data:
+            return self.cache_data[key]
+        return None
