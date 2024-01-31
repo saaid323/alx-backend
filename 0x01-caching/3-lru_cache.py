@@ -16,6 +16,8 @@ class LRUCache(BaseCaching):
 
     def put(self, key, item):
         '''puts items in a dictionary'''
+        if key is None or item is None:
+            return
         if len(self.cache_data) >= self.MAX_ITEMS:
             if self.cache_data.get(key) is not None:
                 del self.cache_data[key]
@@ -24,8 +26,7 @@ class LRUCache(BaseCaching):
                 first = self.first_key(self.cache_data)
                 discard = self.cache_data.pop(self.first_key(self.cache_data))
                 print(f'DISCARD: {first}')
-        if key is not None or item is not None:
-            self.cache_data[key] = item
+        self.cache_data[key] = item
 
     def get(self, key):
         '''gets item from dictionary'''
@@ -34,4 +35,4 @@ class LRUCache(BaseCaching):
         item = self.cache_data[key]
         del self.cache_data[key]
         self.cache_data[key] = item
-        return self.cache_data[key]
+        return self.cache_data.get(key)
