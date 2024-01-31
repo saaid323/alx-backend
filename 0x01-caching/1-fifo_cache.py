@@ -17,6 +17,8 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         '''puts items into the dictionary'''
+        if key is None or item is None:
+            return
         if key is not None or item is not None:
             if len(self.cache_data) >= self.MAX_ITEMS:
                 if self.cache_data.get(key) is not None:
