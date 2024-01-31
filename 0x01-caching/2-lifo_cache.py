@@ -21,8 +21,8 @@ class LIFOCache(BaseCaching):
             else:
                 discard = self.cache_data.popitem()
                 print(f'DISCARD: {discard[0]}')
+
         self.cache_data[key] = item
-        return self.cache_data
 
     def get(self, key):
         '''gets item from dictionary'''
