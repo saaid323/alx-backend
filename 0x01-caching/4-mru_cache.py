@@ -16,6 +16,8 @@ class MRUCache(BaseCaching):
 
     def put(self, key, item):
         '''adds item to the dictionary'''
+        if key is None or item is None:
+            return
         if len(self.cache_data) >= self.MAX_ITEMS:
             if self.cache_data.get(key) is not None:
 
