@@ -30,7 +30,7 @@ class LFUCache(BaseCaching):
                 if self.cache_data.get(key) is not None:
                     self.COUNT[key] += 1
                     self.cache_data[key] = item
-                    return 
+                    return
                 discarded = self.least_accessed(self.cache_data)
                 self.cache_data.pop(self.least_accessed(self.cache_data))
                 self.COUNT.pop(discarded)
