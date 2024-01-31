@@ -7,6 +7,7 @@ class FIFOCache(BaseCaching):
     '''class that inherits from BaseCaching and is a caching system'''
 
     def __init__(self):
+        '''Initiliaze the class'''
         super().__init__()
 
     def first_key(self, data):
