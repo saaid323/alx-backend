@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+'''flask app 1-app.py'''
 from flask import Flask, render_template
 from flask_babel import Babel
 
@@ -19,6 +20,7 @@ babel = Babel(app)
 
 @app.route('/')
 def index():
+    '''index page of the app'''
     return render_template('1-index.html')
 
 
