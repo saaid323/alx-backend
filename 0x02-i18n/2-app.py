@@ -20,6 +20,7 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale():
+    '''get_local method'''
     return request.accept_languages.best_match(app.config[Config.LANGUAGES])
 
 
