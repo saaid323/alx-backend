@@ -9,7 +9,6 @@ function sendNotification(phoneNumber, message, job, done) {
 		return done(new Error('Phone number PHONE_NUMBER is blacklisted'));
 	}
 	job.progress(50, 100);
-	console.log('Phone Number', phoneNumber);
 	console.log(`Sending notification to ${phoneNumber}, with message: ${message}`);
 	setTimeout(() => {
 		done();
