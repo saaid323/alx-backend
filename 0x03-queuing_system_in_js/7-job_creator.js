@@ -48,7 +48,7 @@ const jobs = [
   }
 ];
 for (const i in jobs) {
-  const job = queue.create('push_notification_code', i).save((err) => {
+  const job = queue.create('push_notification_code_2', i).save((err) => {
     if (!err) {
       console.log(`Notification job created: ${job.id}`);
     } else {
